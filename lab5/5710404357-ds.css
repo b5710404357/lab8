@@ -1,0 +1,55 @@
+body
+{
+    font-family: 'Nunito', sans-serif;
+    background-image: url(normal-bg.jpg);	
+    background-attachment: fixed;
+    
+
+}
+.div1 {
+    background-color: #FFF;
+    width: 30%;
+	opacity: 0.95;
+    font-size: 30px;
+    filter: alpha(opacity=95);
+    margin: 20% 10% 5% 30%;
+    padding: 3% 5% 3% 5%;
+
+}
+.div2{
+    text-align: center;
+    opacity: 0.95;
+    font-size: 30px;
+    filter: alpha(opacity=95);
+    background-color: #FFF;
+    margin: 0% 25% 0% 25%;
+    padding: 3% 5% 3% 5%;
+}
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+input ,select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
