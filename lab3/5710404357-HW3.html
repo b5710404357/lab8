@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" media="screen" href="5710404357-css.css">
+<title>Untitled Document</title>
+<script>
+
+  function deleteCookie(name)
+  {
+	document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  }
+
+function setCookie(cname, cvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+  function getCookie(name)
+  {
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : null;
+  }
+function saveFunction() {
+	setCookie("dfirstname",document.getElementById("firstname").value);
+	setCookie("dlastname",document.getElementById("lastname").value);
+	
+	setCookie("dhousenumber",document.getElementById("housenumber").value);
+	setCookie("dstreet",document.getElementById("street").value);
+	setCookie("dcity",document.getElementById("city").value);
+	setCookie("dprovince",document.getElementById("province").value);
+	setCookie("dzipcode",document.getElementById("zipcode").value);
+	
+	setCookie("dphone-number",document.getElementById("phone-number").value);
+	setCookie("dphone-number2",document.getElementById("phone-number2").value);
+	setCookie("dphone-number3",document.getElementById("phone-number3").value);
+	
+	setCookie("dcell-phone",document.getElementById("cell-phone").value);
+	setCookie("dcell-phone2",document.getElementById("cell-phone2").value);
+	setCookie("dcell-phone3",document.getElementById("cell-phone3").value);
+	
+	setCookie("dday",document.getElementById("day").value);
+	setCookie("dmounth",document.getElementById("mounth").value);
+	setCookie("dyear",document.getElementById("year").value);
+	
+	setCookie("dbd-week",document.getElementById("bd-week").value);
+	
+	setCookie("dzodiac-sign",document.getElementById("zodiac-sign").value);
+	setCookie("dzodiac-year",document.getElementById("zodiac-year").value);
+
+}
+function checkPhone(data)
+{
+	if(document.getElementById(data).value.match(/^[0-9]+$/) && document.getElementById(data).value.length == 3)
+	{
+		return true;
+	}
+	return false;
+}
+function checkDate(){
+	if(	document.getElementById("day").value.match(/^[0-9]+$/) && 
+		document.getElementById("mounth").value.match(/^[0-9]+$/) &&
+		document.getElementById("year").value.match(/^[0-9]+$/)   &&
+		document.getElementById("mounth").value <= 31 &&
+		document.getElementById("mounth").value <= 12 &&
+		document.getElementById("year").value.length == 4 )
+	{
+		return true;
+	}
+	return false;
+}
+function checkWeek(){
+	
+	if(document.getElementById("bd-week").value.match(/^[A-Za-z]+$/)){
+		var v = String(document.getElementById("bd-week").value);
+		if(	v.toLowerCase() == "sunday" ||
+			v.toLowerCase() == "monday" ||
+			v.toLowerCase()== "tuesday" ||
+			v.toLowerCase() == "wednesday" ||
+			v.toLowerCase() == "thursday" ||
+			v.toLowerCase() == "friday" ||
+			v.toLowerCase() == "saturday" )
+		{
+			return true;
+		}
+	}
+	return false;
+}
+function checkZodiacYear(){
+	
+	if(document.getElementById("zodiac-year").value.match(/^[A-Za-z]+$/)){
+		var v = String(document.getElementById("zodiac-year").value);
+		if(	v.toLowerCase() == "pig" ||
+			v.toLowerCase() == "rat" ||
+			v.toLowerCase()== "oxen" ||
+			v.toLowerCase() == "tiger" ||
+			v.toLowerCase() == "rabbit" ||
+			v.toLowerCase() == "dragon" ||
+			v.toLowerCase() == "snake" ||
+			v.toLowerCase() == "horse" ||
+			v.toLowerCase() == "sheep" ||
+			v.toLowerCase() == "monkey" ||
+			v.toLowerCase() == "rooster" ||
+			v.toLowerCase() == "dog" )
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+function checkZodiacSign(){
+	
+
+		if(document.getElementById("zodiac-sign").value.match(/^[A-Za-z]+$/)){
+		var v = String(document.getElementById("zodiac-sign").value);	
+		if(	v.toLowerCase() == "capricorn" ||
+			v.toLowerCase() == "aquarius" ||
+			v.toLowerCase()== "pisces" ||
+			v.toLowerCase() == "aries" ||
+			v.toLowerCase() == "taurus" ||
+			v.toLowerCase() == "gemini" ||
+			v.toLowerCase() == "cancer" ||
+			v.toLowerCase() == "leo" ||
+			v.toLowerCase() == "virgo" ||
+			v.toLowerCase() == "libra" ||
+			v.toLowerCase() == "scorpio" ||
+			v.toLowerCase() == "sagitarius" )
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+function submitFunction(){
+		if(	document.getElementById("firstname").value.match(/^[A-Za-z]+$/) &&
+			document.getElementById("lastname").value.match(/^[A-Za-z]+$/) &&
+			
+			document.getElementById("housenumber").value.match(/^[0-9]+$/) &&
+			document.getElementById("street").value.match(/^[A-Za-z0-9]+$/) &&
+			document.getElementById("city").value.match(/^[A-Za-z]+$/) &&
+			document.getElementById("province").value.match(/^[A-Za-z0-9]+$/) &&
+			document.getElementById("zipcode").value.match(/^[0-9]+$/) &&
+			
+			document.getElementById("phone-number").value == "+662" &&
+			checkPhone("phone-number2") &&
+			checkPhone("phone-number3") &&
+//			document.getElementById("phone-number2").value.match(/^[0-9]+$/) &&
+//			document.getElementById("phone-number3").value.match(/^[0-9]+$/) &&
+			
+			document.getElementById("cell-phone").value == "+66" &&
+			checkPhone("cell-phone2") &&
+			//document.getElementById("cell-phone2").value.match(/^[0-9]+$/) &&
+			checkPhone("cell-phone3") &&
+			//document.getElementById("cell-phone3").value.match(/^[0-9]+$/) &&
+			checkDate() &&
+/*			document.getElementById("day").value.match(/^[0-9]+$/) &&
+			document.getElementById("mounth").value.match(/^[0-9]+$/) &&
+			document.getElementById("year").value.match(/^[0-9]+$/) &&
+			*/
+			checkWeek() &&
+			//document.getElementById("bd-week").value.match(/^[A-Za-z]+$/) &&
+			checkZodiacSign() &&
+			//document.getElementById("zodiac-sign").value.match(/^[A-Za-z]+$/) &&
+			checkZodiacYear()
+)
+			{
+<!--				alert("in");-->
+		setCookie("Sfirstname",document.getElementById("firstname").value);		
+		setCookie("Slastname",document.getElementById("lastname").value);
+	
+		setCookie("Shousenumber",document.getElementById("housenumber").value);
+		setCookie("Sstreet",document.getElementById("street").value);
+		setCookie("Scity",document.getElementById("city").value);
+		setCookie("Sprovince",document.getElementById("province").value);
+		setCookie("Szipcode",document.getElementById("zipcode").value);
+	
+		setCookie("Sphone-number",document.getElementById("phone-number").value);
+		setCookie("Sphone-number2",document.getElementById("phone-number2").value);
+		setCookie("Sphone-number3",document.getElementById("phone-number3").value);
+	
+		setCookie("Scell-phone",document.getElementById("cell-phone").value);
+		setCookie("Scell-phone2",document.getElementById("cell-phone2").value);
+		setCookie("S"+"cell-phone3",document.getElementById("cell-phone3").value);
+	
+		setCookie("S"+"day",document.getElementById("day").value);
+		setCookie("S"+"mounth",document.getElementById("mounth").value);
+		setCookie("S"+"year",document.getElementById("year").value);
+	
+		setCookie("S"+"bd-week",document.getElementById("bd-week").value);
+	
+		setCookie("S"+"zodiac-sign",document.getElementById("zodiac-sign").value);
+		setCookie("S"+"zodiac-year",document.getElementById("zodiac-year").value);
+		
+		
+		}
+
+		else
+		{
+		alert("error");
+		}
+}
+
+function checkCookie() {
+	if(getCookie("dfirstname") != "") document.getElementById("firstname").value = getCookie("dfirstname");
+	if(getCookie("dlastname") != "") document.getElementById("lastname").value = getCookie("dlastname");
+
+	if(getCookie("dhousenumber") != "") document.getElementById("housenumber").value = getCookie("dhousenumber");
+	if(getCookie("dstreet") != "") document.getElementById("street").value = getCookie("dstreet");
+	if(getCookie("dcity") != "") document.getElementById("city").value = getCookie("dcity");
+	if(getCookie("dprovince") != "") document.getElementById("province").value = getCookie("dprovince");
+	if(getCookie("dzipcode") != "") document.getElementById("zipcode").value = getCookie("dzipcode");
+
+	if(getCookie("dphone-number") != ""){ document.getElementById("phone-number").value = getCookie("dphone-number");}
+	if(getCookie("dphone-number2") != "") document.getElementById("phone-number2").value = getCookie("dphone-number2");
+	if(getCookie("dphone-number3") != "") document.getElementById("phone-number3").value = getCookie("dphone-number3");
+
+	if(getCookie("dcell-phone") != "") document.getElementById("cell-phone").value = getCookie("dcell-phone");
+	if(getCookie("dcell-phone2") != "") document.getElementById("cell-phone2").value = getCookie("dcell-phone2");
+	if(getCookie("dcell-phone3") != "") document.getElementById("cell-phone3").value = getCookie("dcell-phone3");
+
+	if(getCookie("dday") != "") {document.getElementById("day").value = getCookie("dday");}
+	if(getCookie("dmounth") != "") document.getElementById("mounth").value = getCookie("dmounth");
+	if(getCookie("dyear") != "") document.getElementById("year").value = getCookie("dyear");
+
+	if(getCookie("dbd-week") != "") document.getElementById("bd-week").value = getCookie("dbd-week");
+
+	if(getCookie("dzodiac-sign") != "") document.getElementById("zodiac-sign").value = getCookie("dzodiac-sign");
+	if(getCookie("dzodiac-year") != "") document.getElementById("zodiac-year").value = getCookie("dzodiac-year");
+	checkTable();
+}
+function checkTable() {	
+	//checkTable
+	if(getCookie("S"+"firstname") != "") document.getElementById("t-firstname").innerHTML = getCookie("S"+"firstname");
+	if(getCookie("S"+"lastname") != "") document.getElementById("t-lastname").innerHTML = getCookie("S"+"lastname");
+
+	if(getCookie("S"+"housenumber") != "") document.getElementById("t-address").innerHTML = getCookie("S"+"housenumber")+" "+getCookie("S"+"street")+" "+getCookie("S"+"city")+" "+getCookie("S"+"province")+" "+getCookie("S"+"zipcode");
+
+	if(getCookie("S"+"phone-number") != "") document.getElementById("t-phone").innerHTML = getCookie("S"+"phone-number")+"-"+getCookie("S"+"phone-number2")+"-"+getCookie("S"+"phone-number3");
+
+	if(getCookie("S"+"cell-phone") != "") document.getElementById("t-cellPhone").innerHTML = getCookie("S"+"cell-phone")+"-"+getCookie("S"+"cell-phone2")+"-"+getCookie("S"+"cell-phone3");
+
+	if(getCookie("S"+"day") != "") document.getElementById("t-birthday").innerHTML = getCookie("S"+"bd-week")+" "+getCookie("S"+"day")+"/"+getCookie("S"+"mounth")+"/"+getCookie("S"+"year");
+
+	if(getCookie("S"+"zodiac-sign") != "") document.getElementById("t-zodiacSign").innerHTML = getCookie("S"+"zodiac-sign");
+	if(getCookie("S"+"zodiac-year") != "") document.getElementById("t-zodiacYear").innerHTML = getCookie("S"+"zodiac-year");
+}
+
+  function cancelFunction()
+  {
+
+	deleteCookie("dfirstname");
+	deleteCookie("dlastname");
+	
+	deleteCookie("dhousenumber");
+	deleteCookie("dstreet");
+	deleteCookie("dcity");
+	deleteCookie("dprovince");
+	deleteCookie("dzipcode");
+	
+	deleteCookie("dphone-number");
+	deleteCookie("dphone-number2");
+	deleteCookie("dphone-number3");
+	
+	deleteCookie("dcell-phone");
+	deleteCookie("dcell-phone2");
+	deleteCookie("dcell-phone3");
+	
+	deleteCookie("dday");
+	deleteCookie("dmounth");
+	deleteCookie("dyear");
+	
+	deleteCookie("dbd-week");
+	
+	deleteCookie("dzodiac-sign");
+	deleteCookie("dzodiac-year");
+  	alert("cancel");
+	location.reload();
+  }
+</script>
+
+</head>
+
+<body onload="checkCookie()">
+<div class="main">
+<h1>Infromation Form</h1>
+
+<form id="myform" name="myform" 
+ >
+	<div class="form">
+	Firstname: <input type="text" id="firstname" value=""><br>
+    <br>
+    Lastname: <input type="text" id="lastname" value=""><br>
+	<br>
+    Address:<br>
+    House number <input type="text" id="housenumber" value="">
+    Street <input type="text" id="street" value="">
+    <br>
+    City <input type="text" id="city" value="">
+    Province <input type="text" id="province" value="">
+    <br>
+    Zipcode <input type="text" id="zipcode" value=""><br>
+    
+    <br>
+    Phone number(+662-xxx-xxx): <input type="text" id="phone-number" value="+662" maxlength="4" size="4"> - 
+    <input type="text" id="phone-number2" value="" maxlength="3" size="3"> - 
+    <input type="text" id="phone-number3" value="" maxlength="3" size="3"><br>
+    <br>
+    Cell phone number(+66-xxx-xxx): <input type="text" id="cell-phone" value="+66"maxlength="3" size="3"> - 
+    <input type="text" id="cell-phone2" value="" maxlength="3" size="3"> - 
+    <input type="text" id="cell-phone3" value="" maxlength="3" size="3"><br>
+    <br>
+    Birthday(DD/MM/YYYY): <input type="text" id="day" value="DD"maxlength="2" size="2"> /
+    <input type="text" id="mounth" value="MM" maxlength="2" size="2"> / 
+    <input type="text" id="year" value="YYYY" maxlength="4" size="4"><br>
+    <br>
+    Birth Day of Week(ex. monday) : <input type="text" id="bd-week" value=""><br>
+    <br>
+    Zodiac Sign(ex. leo): <input type="text" id="zodiac-sign" value=""><br>
+    <br>
+    Zodiac Year(ex. pig) : <input type="text" id="zodiac-year" value=""><br>
+    <br>
+   
+
+   
+    
+</form>
+<button onclick="saveFunction()">save</button>
+<button onclick="cancelFunction()">cancel</button>
+<button onclick="submitFunction()">submit</button>
+</div>
+<div class="table">
+<table style="width:100%">
+	<tr>
+        <td>Firstname</td>
+    	<td id="t-firstname"></td>
+    </tr>
+    <tr>
+        <td>Lastname</td>
+    	<td id="t-lastname"></td>
+    </tr>
+    	<tr>
+        <td>Address</td>
+    	<td id="t-address"></td>
+    </tr>
+    	<tr>
+        <td>Phone number</td>
+    	<td id="t-phone"></td>
+    </tr>
+    	<tr>
+        <td>Cell Phone number</td>
+    	<td id="t-cellPhone"></td>
+    </tr>
+    	<tr>
+        <td>Birthday</td>
+    	<td id="t-birthday"></td>
+    </tr>
+<!--    	<tr>
+        <td>Birth Day of Week</td>
+    	<td id="t-birthdayWeek"></td>
+    </tr>-->
+    	<tr>
+        <td>Zodiac Sign</td>
+    	<td id="t-zodiacSign"></td>
+    </tr>
+        </tr>
+    	<tr>
+        <td>Zodiac Year</td>
+    	<td id="t-zodiacYear"></td>
+    </tr>
+    
+</table>
+</div>
+</div>
+
+
+
+
+</body>
+</html>
